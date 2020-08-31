@@ -1,8 +1,11 @@
 // import { findAllByDisplayValue } from "@testing-library/react";
 
-
 export const initialState = {
   user: null,
+  //   token:null,
+  // Not required log in everytime to debugging with our access token
+  token:
+    "BQCsXQIi28eYxLpDzBslTT6hsFXulPR1Ma0QNsaznvqGjUXiev4fEi298Ld55VE4HabxbDzOWbfU6zVKxC1b9nTpECUXBJs2vun_p4di__wiZXMLfA5gaL3Fs5lOMhW3wgc731yodtqWhoUN-JdS2vfjU1N9vohs",
   playlists: [],
   spotify: null,
   discover_weekly: null,
@@ -12,7 +15,7 @@ export const initialState = {
 };
 
 const reducer = (state, action) => {
-    console.log(action);
+  console.log(action);
 
   // Action => type, [payload]
 
@@ -22,6 +25,12 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       };
+    case "SET_TOKEN":
+      return {
+        ...state,
+        token: action.token,
+      };
+
     default:
       return state;
   }
