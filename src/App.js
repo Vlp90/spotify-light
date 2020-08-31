@@ -36,7 +36,7 @@ function App() {
 
       // connect spotify to react
       spotify.getMe().then((user) => {
-        console.log("USER Connected", user);
+        // console.log("USER Connected", user);
 
         dispatch({
           type: "SET_USER",
@@ -44,15 +44,15 @@ function App() {
         });
       });
     }
-    console.log("I have a token ------>>>", token);
+    // console.log("I have a token ------>>>", token);
   }, []);
 
-  console.log("USER Connected", user);
-  console.log("USER TOKEN", token);
+  // console.log("USER Connected", user);
+  // console.log("USER TOKEN", token);
 
   return (
     <div className="app">
-      {token ? <Player /> : <Login />}
+      {token ? <Player spotify={spotify}/> : <Login />}
     </div>
   );
 }
