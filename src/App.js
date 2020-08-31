@@ -6,6 +6,9 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 import Player from './Player'
 
+import { useStateValue } from "./StateProvider";
+
+
 // create an object to interact with spotify api
 // npm i spotify-web-api-js
 const spotify = new SpotifyWebApi();
@@ -13,6 +16,7 @@ const spotify = new SpotifyWebApi();
 function App() {
   // run Code based on a given condition
   const [token, setToken] = useState(null);
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -25,15 +29,19 @@ function App() {
       spotify.setAccessToken(_token);
 
       // connect spotify to react
-      spotify.getMe().then(user => {
-        console.log("USER Connected", user)
-      })
+      spotify.getMe().then((user) => {
+        console.log("USER Connected", user);
 
+        dispatch({
+          type: "SET_USER",
+          user: user,
+        });
+      });
     }
-
-    console.log("I have a token ------>>>", hash);
+    console.log("I have a token ------>>>", token);
   }, []);
 
+  console.log("USER Connected", user);
   return (
     <div className="app">
       {token ? <Player /> : <Login />}
