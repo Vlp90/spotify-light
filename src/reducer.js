@@ -2,9 +2,9 @@
 
 export const initialState = {
   user: null,
-    // token:null,
+    token:null,
   // Not required log in everytime to debugging with our access token //// TO BE REMOVED AFTER COMPILING
-  token:"BQAkMkvquZQkhPFZw0jkgXM_mcCFgWXJFpBfpzFx-ccDTm9JZwN3SjwxSWddwqC5mbNFs9uXIGhPVSeq4Bs1c4YXUbHyfFwKs46XXSiENgmqysisaIqjtyPQyYMlk2uAupPy3QXrVV2HqCplmCX4rXH_uAllge16",
+//   token:"BQAkMkvquZQkhPFZw0jkgXM_mcCFgWXJFpBfpzFx-ccDTm9JZwN3SjwxSWddwqC5mbNFs9uXIGhPVSeq4Bs1c4YXUbHyfFwKs46XXSiENgmqysisaIqjtyPQyYMlk2uAupPy3QXrVV2HqCplmCX4rXH_uAllge16",
     playlists: [],
   spotify: null,
   discover_weekly: null,
