@@ -2,10 +2,6 @@
 
 export const initialState = {
   user: null,
-    token:null,
-  // Not required log in everytime to debugging with our access token //// TO BE REMOVED AFTER COMPILING
-//   token:"BQAkMkvquZQkhPFZw0jkgXM_mcCFgWXJFpBfpzFx-ccDTm9JZwN3SjwxSWddwqC5mbNFs9uXIGhPVSeq4Bs1c4YXUbHyfFwKs46XXSiENgmqysisaIqjtyPQyYMlk2uAupPy3QXrVV2HqCplmCX4rXH_uAllge16",
-    playlists: [],
   spotify: null,
   discover_weekly: null,
   top_artists: null,
@@ -14,7 +10,7 @@ export const initialState = {
 };
 
 const reducer = (state, action) => {
-  console.log(action);
+  console.log("ACTION", action);
 
   // Action => type, [payload]
 
@@ -24,24 +20,48 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       };
+
+    case "SET_PLAYING":
+      return {
+        ...state,
+        playing: action.playing,
+      };
+
+    case "SET_ITEM":
+      return {
+        ...state,
+        item: action.item,
+      };
+
+    case "SET_DISCOVER_WEEKLY":
+      return {
+        ...state,
+        discover_weekly: action.discover_weekly,
+      };
+
+    case "SET_TOP_ARTISTS":
+      return {
+        ...state,
+        top_artists: action.top_artists,
+      };
+
     case "SET_TOKEN":
       return {
         ...state,
         token: action.token,
       };
 
-      case "SET_PLAYLISTS":
+    case "SET_SPOTIFY":
+      return {
+        ...state,
+        spotify: action.spotify,
+      };
+
+    case "SET_PLAYLISTS":
       return {
         ...state,
         playlists: action.playlists,
       };
-
-      case 'SET_DISCOVER_WEEKLY':
-      return {
-          ...state,
-          discover_weekly: action.discover_weekly,
-      }
-
     default:
       return state;
   }
